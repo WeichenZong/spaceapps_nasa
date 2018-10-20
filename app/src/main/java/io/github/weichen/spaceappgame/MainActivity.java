@@ -12,15 +12,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import java.util.*;
 
 import java.io.InputStream;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-
+    Map<Integer,String> map = new Hashtable<Integer,String>();
     Button b1;
     Button b2;
+    TextView text;
     ImageView iw;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,8 +34,9 @@ public class MainActivity extends Activity implements OnClickListener {
         b2 = (Button) findViewById(R.id.button2);
         b2.setOnClickListener(this);
         iw = (ImageView) findViewById(R.id.icon);
+        text = (TextView) findViewById(R.id.image_text);
 
-        Map<Integer,String> map = new Hashtable<Integer,String>();
+        map.put(R.drawable.icon, "This is an icon");
         map.put(R.drawable.mars,"This is mars.");
         map.put(R.drawable.galaxy1, "A galaxy is a gravitationally bound system of stars, stellar remnants, interstellar gas, dust, and dark matter. Each is comprised of many solar systems, which are, depending on the form, sometimes divided into arms or sectors of said galaxy.");
         map.put(R.drawable.galaxy2, "Galaxies of various sizes exist. From dwarfs with just a few hundred million (10^8) stars to giants with one hundred trillion (10^14) stars, each orbiting its galaxy's center of mass. Galaxies are categorized according to their visual forms. Most of them have a supermassive black hole at their active center.");
@@ -50,10 +53,13 @@ public class MainActivity extends Activity implements OnClickListener {
         if (v == b1)
         {
             iw.setImageResource(R.drawable.mars);
+            text.setText(map.get(R.drawable.mars));
         }
         else if (v == b2)
         {
             iw.setImageResource(R.drawable.icon);
+            text.setText(map.get(R.drawable.icon));
+
         }
 
     }
