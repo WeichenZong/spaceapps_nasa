@@ -1,52 +1,89 @@
 package io.github.weichen.spaceappgame;
 
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.nfc.Tag;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import java.util.*;
 
-public class MainActivity extends AppCompatActivity {
+import java.io.InputStream;
 
+public class MainActivity extends Activity implements OnClickListener {
+
+    Map<Integer,String> map = new Hashtable<Integer,String>();
+    Set<Integer> keys;
+    ArrayList<Integer> list = new ArrayList<Integer>();
+    int position = 0;
+    Button b1;
+    Button b2;
+    TextView text;
+    ImageView iw;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.content_main);
+        b1 = (Button) findViewById(R.id.button1);
+        b1.setOnClickListener(this);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
+        b2 = (Button) findViewById(R.id.button2);
+        b2.setOnClickListener(this);
+        iw = (ImageView) findViewById(R.id.icon);
+        text = (TextView) findViewById(R.id.image_text);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        map.put(R.drawable.icon, "This is an icon");
+        map.put(R.drawable.mars,"This is mars.");
+        map.put(R.drawable.galaxy1, "A galaxy is a gravitationally bound system of stars, stellar remnants, interstellar gas, dust, and dark matter. Each is comprised of many solar systems, which are, depending on the form, sometimes divided into arms or sectors of said galaxy.");
+        map.put(R.drawable.galaxy2, "Galaxies of various sizes exist. From dwarfs with just a few hundred million (10^8) stars to giants with one hundred trillion (10^14) stars, each orbiting its galaxy's center of mass. Galaxies are categorized according to their visual forms. Most of them have a supermassive black hole at their active center.");
+        map.put(R.drawable.galaxy_cluster1, "A galaxy cluster is a structure that consists of hundreds of thousands of galaxies that are bonded together by gravity with typical masses ranging from 10^14 to 10^15 solar masses. They are attracted to each other and form giant clusters that stretch for thousands of light-years. Usually, the galaxies and intergalactic gas take up to 10% of the clusters. The rest is occupied by dark matter and/or nothingness.");
+        map.put(R.drawable.spiral_galaxy1, "Spiral galaxies resemble spiraling pinwheels. Though the stars and other visible material contained in such galaxies lie mostly on a plane, the majority of mass in spiral galaxies exists in a roughly spherical halo of dark matter that extends beyond the visible component, as demonstrated by the universal rotation curve concept");
+        map.put(R.drawable.spiral_galaxy2, "Spiral galaxies consist of a rotating disk of stars and interstellar medium, along with a central bulge of generally older stars. Extending outward from the bulge are relatively bright arms. In the Hubble classification scheme, spiral galaxies are listed as type S, followed by a letter (a, b, or c) that indicates the degree of tightness of the spiral arms and the size of the central bulge.");
+        keys = map.keySet();
+        //iteror to make a list
+        for (int key : keys){
+            list.add(key);
         }
 
-        return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onClick(View v) {
+        // TODO Auto-generated method stub
+       learning(v);
+    }
+    public void learning(View v){
+        if (v == b1)
+        {
+            position++;
+            if (position >map.size()-1){
+                position = 0;
+            }
+            Log.d("position: ",Integer.toString(position));
+            iw.setImageResource(list.get(position));
+            text.setText(map.get(list.get(position)));
+        }
+        else if (v == b2)
+        {
+            position--;
+            if (position <0){
+
+                position =map.size()-1;
+
+            }
+            Log.d("position: ",Integer.toString(position));
+            iw.setImageResource(list.get(position));
+            text.setText(map.get(list.get(position)));
+
+        }
+
+    }
+
 }
