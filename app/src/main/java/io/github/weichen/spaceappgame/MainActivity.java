@@ -63,9 +63,8 @@ public class MainActivity extends Activity implements OnClickListener {
         if (v == b1)
         {
             position++;
-            if (position >map.size()){
-                position--;
-                text.setText("This is already the last picture");
+            if (position >map.size()-1){
+                position = 0;
             }
             Log.d("position: ",Integer.toString(position));
             iw.setImageResource(list.get(position));
@@ -75,8 +74,9 @@ public class MainActivity extends Activity implements OnClickListener {
         {
             position--;
             if (position <0){
-                text.setText("This is already the first picture");
-                position ++;
+
+                position =map.size()-1;
+
             }
             Log.d("position: ",Integer.toString(position));
             iw.setImageResource(list.get(position));
@@ -85,5 +85,5 @@ public class MainActivity extends Activity implements OnClickListener {
         }
 
     }
-    
+
 }
