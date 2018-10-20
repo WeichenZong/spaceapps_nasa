@@ -12,6 +12,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 
     Button b1;
+    Button b2;
     ImageView iw;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,8 @@ public class MainActivity extends Activity implements OnClickListener {
         b1 = (Button) findViewById(R.id.button1);
         b1.setOnClickListener(this);
 
+        b2 = (Button) findViewById(R.id.button2);
+        b2.setOnClickListener(this);
         iw = (ImageView) findViewById(R.id.icon);
     }
 
@@ -30,6 +33,10 @@ public class MainActivity extends Activity implements OnClickListener {
         if (v == b1)
         {
             iw.setImageResource(R.drawable.realtest0);
+        }
+        else if (v == b2)
+        {
+            iw.setImageResource(R.drawable.icon);
         }
 
     }
