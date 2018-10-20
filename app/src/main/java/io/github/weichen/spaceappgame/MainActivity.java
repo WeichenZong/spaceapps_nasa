@@ -47,6 +47,7 @@ public class MainActivity extends Activity implements OnClickListener {
         map.put(R.drawable.spiral_galaxy1, "Spiral galaxies resemble spiraling pinwheels. Though the stars and other visible material contained in such galaxies lie mostly on a plane, the majority of mass in spiral galaxies exists in a roughly spherical halo of dark matter that extends beyond the visible component, as demonstrated by the universal rotation curve concept");
         map.put(R.drawable.spiral_galaxy2, "Spiral galaxies consist of a rotating disk of stars and interstellar medium, along with a central bulge of generally older stars. Extending outward from the bulge are relatively bright arms. In the Hubble classification scheme, spiral galaxies are listed as type S, followed by a letter (a, b, or c) that indicates the degree of tightness of the spiral arms and the size of the central bulge.");
         keys = map.keySet();
+        //iteror to make a list
         for (int key : keys){
             list.add(key);
         }
@@ -56,6 +57,9 @@ public class MainActivity extends Activity implements OnClickListener {
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
+       learning(v);
+    }
+    public void learning(View v){
         if (v == b1)
         {
             position++;
@@ -81,4 +85,5 @@ public class MainActivity extends Activity implements OnClickListener {
         }
 
     }
+    
 }
