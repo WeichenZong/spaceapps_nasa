@@ -58,15 +58,23 @@ public class MainActivity extends Activity implements OnClickListener {
         // TODO Auto-generated method stub
         if (v == b1)
         {
-            Log.d("position: ",Integer.toString(position));
             position++;
+            if (position >map.size()){
+                position--;
+                text.setText("This is already the last picture");
+            }
+            Log.d("position: ",Integer.toString(position));
             iw.setImageResource(list.get(position));
             text.setText(map.get(list.get(position)));
         }
         else if (v == b2)
         {
-            Log.d("position: ",Integer.toString(position));
             position--;
+            if (position <0){
+                text.setText("This is already the first picture");
+                position ++;
+            }
+            Log.d("position: ",Integer.toString(position));
             iw.setImageResource(list.get(position));
             text.setText(map.get(list.get(position)));
 
