@@ -14,7 +14,7 @@
         android:layout_marginEnd="30dp"
         android:layout_marginStart="44dp"
         android:adjustViewBounds="true"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         android:src="@drawable/icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
