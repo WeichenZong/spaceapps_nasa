@@ -30,5 +30,9 @@ public class MenuActivity extends Activity implements View.OnClickListener {
             intent.putExtra( "name", "value");
             startActivity(intent);
         }
+        else if (view == test){
+            Intent intent = new Intent(this,TestingActivity.class);
+            startActivity(intent);
+        }
     }
 }
