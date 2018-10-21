@@ -89,7 +89,6 @@ public class TestingActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
- 
 
     }
     public int RNG(int max){
