@@ -6,12 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Hashtable;
+import java.util.Map;
+
 public class TestingActivity extends Activity implements View.OnClickListener {
 
     Button a;
     Button b;
     Button c;
     Button d;
+    Map<String,String> map1 = new Hashtable<String,String>();
+    Map<String,Integer> map2 = new Hashtable<String,Integer>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
