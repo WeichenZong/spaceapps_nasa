@@ -1,6 +1,7 @@
 package io.github.weichen.spaceappgame;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.Button;
 
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.Random;
 
 public class TestingActivity extends Activity implements View.OnClickListener {
 
@@ -34,6 +36,7 @@ public class TestingActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+ 
 
     }
 }
