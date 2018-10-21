@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputContentInfo;
 import android.widget.Button;
 
 import java.io.BufferedReader;
@@ -64,9 +65,9 @@ public class TestingActivity extends Activity implements View.OnClickListener {
     Button b;
     Button c;
     Button d;
+    int length=0;
     ArrayList<Triple> list = new ArrayList<Triple>();
-    InputStream isans,isqs;
-
+    BufferedReader readerans,readerqs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,11 +81,29 @@ public class TestingActivity extends Activity implements View.OnClickListener {
         d = (Button) findViewById(R.id.button_d);
         d.setOnClickListener(this);
         try {
-            isqs  = getAssets().open("SpaceAppsQuestions.txt");
-            isans = getAssets().open("SpaceAppsAnswers.txt");
+           final InputStream isqs  = getAssets().open("SpaceAppsQuestions.txt");
+           final InputStream  isans = getAssets().open("SpaceAppsAnswers.txt");
+            readerans = new BufferedReader(new InputStreamReader(isans));
+            readerqs = new BufferedReader(new InputStreamReader(isqs));
+            // get the number of how much question there are
+                readerans.mark(0);
+
+            while(readerans.readLine() !=null){
+                String tmp = readerans.readLine();
+                length++;
+            }
+            readerans.reset();
+            // read data drom file build list
+            while(readerans.readLine() != null && readerqs.readLine() != null){
+                for(int i=0;i<length;i++){
+                    list.add(new Triple(readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), Integer.parseInt(readerans.readLine())));
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
+
     }
 
     @Override
