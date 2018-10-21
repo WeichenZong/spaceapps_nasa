@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.support.constraint.solver.widgets.WidgetContainer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputContentInfo;
 import android.widget.Button;
@@ -104,14 +103,14 @@ class Triple{
             for (int i = 0; i < 16; i++) {
 
                 list.add(new Triple(readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), 1/*Integer.parseInt(readerans.readLine())*/));
-                Log.d("ITEM of list = ", list.get(i).getQustions());
+
             }
         }catch (Exception e) {
             e.printStackTrace();
         }
 
 
-        Log.d("list lengtj: ", Integer.toString(list.size()));
+
         int[] rng = RNG(list.size()-1,list.size());
         int first = rng[iteration];
         String Question = getQuestionfromindex(first).getQustions();

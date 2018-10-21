@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.nfc.Tag;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -65,7 +64,7 @@ public class MainActivity extends Activity implements OnClickListener {
             if (position >map.size()-1){
                 position = 0;
             }
-            Log.d("position: ",Integer.toString(position));
+
             iw.setImageResource(list.get(position));
             text.setText(map.get(list.get(position)));
         }
@@ -77,7 +76,6 @@ public class MainActivity extends Activity implements OnClickListener {
                 position =map.size()-1;
 
             }
-            Log.d("position: ",Integer.toString(position));
             iw.setImageResource(list.get(position));
             text.setText(map.get(list.get(position)));
 

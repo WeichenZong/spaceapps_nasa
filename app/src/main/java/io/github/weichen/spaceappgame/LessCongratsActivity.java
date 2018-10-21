@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -30,7 +29,7 @@ class LessCongratsActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if(view == back) {
-            Log.d("button: ","pressed");
+
             Intent get_intent = getIntent();
             Integer iteration = get_intent.getIntExtra(MenuActivity.EXTRA_MESSAGE, 0);
             Intent intent = new Intent(this, TestingActivity.class);

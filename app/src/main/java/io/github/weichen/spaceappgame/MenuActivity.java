@@ -7,7 +7,6 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -51,7 +50,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
     public void browser1(View v){
         if(v==name) {
             count++;
-            Log.d("click time",Integer.toString(count));
+
             Intent br = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Zeph0528/spaceapps_nasa"));
             startActivity(br);
         }
