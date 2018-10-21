@@ -96,20 +96,36 @@ public class TestingActivity extends Activity implements View.OnClickListener {
             // read data drom file build list
             while(readerans.readLine() != null && readerqs.readLine() != null){
                 for(int i=0;i<length;i++){
-                    list.add(new Triple(readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), Integer.parseInt(readerans.readLine())));
+
+                    list.add( new Triple(readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), Integer.parseInt(readerans.readLine())));
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+        String Question = getQuestionfromindex(RNG(list.size())).getQustions();
+        String anserA = getQuestionfromindex(RNG(list.size())).getAnswera();
+        String anserB = getQuestionfromindex(RNG(list.size())).getAnswerb();
+        String anserC = getQuestionfromindex(RNG(list.size())).getAnswerc();
+        String anserD = getQuestionfromindex(RNG(list.size())).getAnswerd();
+        int rightanswer = getQuestionfromindex(RNG(list.size())).getAnswerKey();
+
+
 
     }
 
     @Override
-    public void onClick(View view) {
- 
+    public void onClick(View v) {
+        if(v==a){
 
+        }
+        else if(v==b){
+
+        }
+
+    }
+    public Triple getQuestionfromindex(int index){
+        return list.get(index);
     }
     public int RNG(int max){
 
