@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputContentInfo;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -65,6 +67,7 @@ public class TestingActivity extends Activity implements View.OnClickListener {
     Button b;
     Button c;
     Button d;
+    TextView question;
     int length=0;
     ArrayList<Triple> list = new ArrayList<Triple>();
     BufferedReader readerans,readerqs;
@@ -80,6 +83,7 @@ public class TestingActivity extends Activity implements View.OnClickListener {
         c.setOnClickListener(this);
         d = (Button) findViewById(R.id.button_d);
         d.setOnClickListener(this);
+        question = (TextView) findViewById(R.id.questiontext);
         try {
            final InputStream isqs  = getAssets().open("SpaceAppsQuestions.txt");
            final InputStream  isans = getAssets().open("SpaceAppsAnswers.txt");
@@ -88,10 +92,14 @@ public class TestingActivity extends Activity implements View.OnClickListener {
             // get the number of how much question there are
                 readerans.mark(0);
 
-            while(readerans.readLine() !=null){
+            /*while(readerans.readLine() !=null){
                 String tmp = readerans.readLine();
+                Log.d("tmp phrase: ",tmp);
                 length++;
-            }
+            }*/
+            File textfile = new File("assets/SpaceAppsQuestions.txt");
+            Log.d("textfile length: ", Long.toString(textfile.length()));
+
             readerans.reset();
             // read data drom file build list
             while(readerans.readLine() != null && readerqs.readLine() != null){
@@ -103,15 +111,20 @@ public class TestingActivity extends Activity implements View.OnClickListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String Question = getQuestionfromindex(RNG(list.size())).getQustions();
+        Log.d("list size",Integer.toString(list.size()));
+        /*String Question = getQuestionfromindex(RNG(list.size())).getQustions();
         String anserA = getQuestionfromindex(RNG(list.size())).getAnswera();
         String anserB = getQuestionfromindex(RNG(list.size())).getAnswerb();
         String anserC = getQuestionfromindex(RNG(list.size())).getAnswerc();
         String anserD = getQuestionfromindex(RNG(list.size())).getAnswerd();
         int rightanswer = getQuestionfromindex(RNG(list.size())).getAnswerKey();
 
-
-
+        a.setText(anserA);
+        b.setText(anserB);
+        c.setText(anserC);
+        d.setText(anserD);
+          question.setText(Question);
+*/
     }
 
     @Override

@@ -8,7 +8,7 @@
     tools:context=".TestingActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/questiontext"
         android:layout_width="383dp"
         android:layout_height="254dp"
         android:layout_marginEnd="1dp"
