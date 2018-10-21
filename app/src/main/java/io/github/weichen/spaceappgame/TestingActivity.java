@@ -125,8 +125,8 @@ public class TestingActivity extends Activity implements View.OnClickListener {
         b.setText(anserB);
         c.setText(anserC);
         d.setText(anserD);
-          question.setText(Question);
-*/
+        question.setText(Question);
+
     }
 
     @Override
