@@ -6,12 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-abstract class LessCongratsActivity extends Activity implements View.OnClickListener {
+class LessCongratsActivity extends Activity implements View.OnClickListener {
     public static final String EXTRA_MESSAGE = "Iteration";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Intent intent = getIntent();
-        Integer iteration = intent.getIntExtra(MenuActivity.EXTRA_MESSAGE,0);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_less_congrats);
         try {
@@ -21,8 +20,10 @@ abstract class LessCongratsActivity extends Activity implements View.OnClickList
         }
     }
 
-    //@Override
-    public void onClick(View view,int iteration) {
+    @Override
+    public void onClick(View view) {
+        Intent get_intent = getIntent();
+        Integer iteration = get_intent.getIntExtra(MenuActivity.EXTRA_MESSAGE,0);
         Intent intent = new Intent(this, TestingActivity.class);
         intent.putExtra( EXTRA_MESSAGE, iteration);
         startActivity(intent);

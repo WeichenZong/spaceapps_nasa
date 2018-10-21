@@ -63,7 +63,7 @@ class Triple{
     }
 }
 
-abstract class TestingActivity extends Activity implements View.OnClickListener {
+ class TestingActivity extends Activity implements View.OnClickListener {
     public static final String EXTRA_MESSAGE = "Iteration";
     Button a;
     Button b;
@@ -131,8 +131,10 @@ abstract class TestingActivity extends Activity implements View.OnClickListener 
 
     }
 
-    //@Override
-    public void onClick(View v,int iteration) {
+    @Override
+    public void onClick(View v) {
+        Intent get_intent = getIntent();
+        Integer iteration = get_intent.getIntExtra(MenuActivity.EXTRA_MESSAGE,0);
         if(v==answers.get(list.get(iteration).getAnswerKey())){
 //if he is right
 
