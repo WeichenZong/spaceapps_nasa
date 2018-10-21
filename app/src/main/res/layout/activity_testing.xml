@@ -13,6 +13,8 @@
         android:layout_height="254dp"
         android:layout_marginEnd="1dp"
         android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textAlignment="center"
         android:text="Text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

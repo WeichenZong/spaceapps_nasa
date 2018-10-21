@@ -136,15 +136,16 @@ class Triple{
         Intent get_intent = getIntent();
         Integer iteration = get_intent.getIntExtra(MenuActivity.EXTRA_MESSAGE,0);
         if(v==answers.get(list.get(iteration).getAnswerKey())){
-//if he is right
+            //if he is right
 
             Intent intent = new Intent(this, CongratsActivity.class);
             intent.putExtra( EXTRA_MESSAGE,iteration+1);
             startActivity(intent);
         }
         else{
+            //if he is not right
             Intent intent = new Intent(this, LessCongratsActivity.class);
-            intent.putExtra( EXTRA_MESSAGE,iteration+1);
+            intent.putExtra( EXTRA_MESSAGE,iteration);
             startActivity(intent);
 
         }

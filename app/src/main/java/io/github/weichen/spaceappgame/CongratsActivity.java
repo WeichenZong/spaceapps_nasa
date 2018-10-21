@@ -4,27 +4,37 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
- class CongratsActivity extends Activity implements View.OnClickListener {
+class CongratsActivity extends Activity implements View.OnClickListener {
     public static final String EXTRA_MESSAGE = "Iteration";
+
+    Button back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_congrats);
-        try {
+        /*try {
             Thread.sleep(100);
         }catch(InterruptedException e){
             e.printStackTrace();
-        }
+        }*/
+        back = (Button) findViewById(R.id.backbutton1);
+        back.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        Intent get_intent = getIntent();
-        Integer iteration = get_intent.getIntExtra(MenuActivity.EXTRA_MESSAGE,0);
-        Intent intent = new Intent(this, TestingActivity.class);
-        intent.putExtra( EXTRA_MESSAGE,iteration);
-        startActivity(intent);
+        if(view == back) {
+            Log.d("button: ","pressed");
+            Intent get_intent = getIntent();
+            Integer iteration = get_intent.getIntExtra(MenuActivity.EXTRA_MESSAGE, 0);
+            Intent intent = new Intent(this, TestingActivity.class);
+            intent.putExtra(EXTRA_MESSAGE, iteration);
+            startActivity(intent);
+        }
     }
 }
