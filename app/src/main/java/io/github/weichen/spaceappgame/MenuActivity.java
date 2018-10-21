@@ -35,7 +35,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
         name = (Button) findViewById(R.id.name);
         name.setOnClickListener(this);
         try {
-            asd = getAssets().openFd("mario.mp3");
+            asd = getAssets().openFd("hubble.wav");
             mp = new MediaPlayer();
             mp.setDataSource(asd.getFileDescriptor(), asd.getStartOffset(),asd.getLength());
             mp.setLooping(true);
