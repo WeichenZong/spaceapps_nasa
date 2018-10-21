@@ -62,7 +62,7 @@ class Triple{
     }
 }
 
- class TestingActivity extends Activity implements View.OnClickListener {
+public class TestingActivity extends Activity implements View.OnClickListener {
     public static final String EXTRA_MESSAGE = "Iteration";
     Button a;
     Button b;
@@ -75,7 +75,7 @@ class Triple{
     ArrayList<Triple> list = new ArrayList<Triple>();
     BufferedReader readerans,readerqs;
     @Override
-    protected void onCreate(Bundle savedInstanceState) throws  NumberFormatException {
+ public void onCreate(Bundle savedInstanceState) throws  NumberFormatException {
         Intent intent = getIntent();
         Integer iteration = intent.getIntExtra(MenuActivity.EXTRA_MESSAGE,0);
         super.onCreate(savedInstanceState);

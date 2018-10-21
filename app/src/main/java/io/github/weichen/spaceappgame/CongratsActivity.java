@@ -7,12 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-class CongratsActivity extends Activity implements View.OnClickListener {
+public class CongratsActivity extends Activity implements View.OnClickListener {
     public static final String EXTRA_MESSAGE = "Iteration";
 
     Button back;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_congrats);
