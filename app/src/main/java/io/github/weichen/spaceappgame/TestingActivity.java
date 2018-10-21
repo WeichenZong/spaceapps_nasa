@@ -49,7 +49,7 @@ class Triple{
         //get the answer c as text
         return b3;
     }
-    public String getAnswerd(){
+    public String getAnswerd(){ 
         //get the answer d as text
         return b4;
     }
