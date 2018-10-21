@@ -7,6 +7,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -20,6 +21,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
     Button name;
     MediaPlayer mp;
     AssetFileDescriptor asd;
+    int count;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +49,19 @@ public class MenuActivity extends Activity implements View.OnClickListener {
 
     }
     public void browser1(View v){
-        Intent br = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Zeph0528/spaceapps_nasa"));
-        startActivity(br);
+        if(v==name) {
+            count++;
+            Log.d("click time",Integer.toString(count));
+            Intent br = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Zeph0528/spaceapps_nasa"));
+            startActivity(br);
+        }
     }
     @Override
     public void onClick(View view) {
+        if(view == name){
+            Intent br = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Zeph0528/spaceapps_nasa"));
+            startActivity(br);
+        }
         if (view == learn){
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra(EXTRA_MESSAGE,0);
