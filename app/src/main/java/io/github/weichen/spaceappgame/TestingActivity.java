@@ -111,13 +111,15 @@ public class TestingActivity extends Activity implements View.OnClickListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        int[] rng = RNG(list.size()-1,list.size());
+        int first = rng[0];
+        String Question = getQuestionfromindex(first).getQustions();
+        String anserA = getQuestionfromindex(first).getAnswera();
+        String anserB = getQuestionfromindex(first).getAnswerb();
+        String anserC = getQuestionfromindex(first).getAnswerc();
+        String anserD = getQuestionfromindex(first).getAnswerd();
+        int rightanswer = getQuestionfromindex(first).getAnswerKey();
         Log.d("list size",Integer.toString(list.size()));
-        /*String Question = getQuestionfromindex(RNG(list.size())).getQustions();
-        String anserA = getQuestionfromindex(RNG(list.size())).getAnswera();
-        String anserB = getQuestionfromindex(RNG(list.size())).getAnswerb();
-        String anserC = getQuestionfromindex(RNG(list.size())).getAnswerc();
-        String anserD = getQuestionfromindex(RNG(list.size())).getAnswerd();
-        int rightanswer = getQuestionfromindex(RNG(list.size())).getAnswerKey();
 
         a.setText(anserA);
         b.setText(anserB);
@@ -140,8 +142,20 @@ public class TestingActivity extends Activity implements View.OnClickListener {
     public Triple getQuestionfromindex(int index){
         return list.get(index);
     }
-    public int RNG(int max){
+    public static int[] RNG(int end,int count){
+        Random rng = new Random();
 
-        return 0;
+        int[] result = new int[count];
+        int cur = 0;
+        int remaining = end - 0;
+        for (int i = 0; i < end && count > 0; i++) {
+            double probability = rng.nextDouble();
+            if (probability < ((double) count) / (double) remaining) {
+                count--;
+                result[cur++] = i;
+            }
+            remaining--;
+        }
+        return result;
     }
 }
