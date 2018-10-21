@@ -12,7 +12,7 @@
         android:layout_width="383dp"
         android:layout_height="254dp"
         android:layout_marginEnd="1dp"
-        android:text="TextView"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +22,7 @@
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:layout_marginEnd="25dp"
-        android:text="A"
+        android:text=""
         app:layout_constraintBottom_toTopOf="@+id/button_b"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -31,7 +31,7 @@
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:layout_marginEnd="25dp"
-        android:text="B"
+        android:text=""
         app:layout_constraintBottom_toTopOf="@+id/button_c"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -41,7 +41,7 @@
         android:layout_height="60dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="1dp"
-        android:text="C"
+        android:text=""
         app:layout_constraintBottom_toTopOf="@+id/button_d"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -51,7 +51,7 @@
         android:layout_height="60dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="5dp"
-        android:text="D"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>
