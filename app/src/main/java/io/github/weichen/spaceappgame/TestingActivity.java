@@ -72,7 +72,7 @@ public class TestingActivity extends Activity implements View.OnClickListener {
     ArrayList<Triple> list = new ArrayList<Triple>();
     BufferedReader readerans,readerqs;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) throws  NumberFormatException {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testing);
         a = (Button) findViewById(R.id.button_a);
@@ -85,33 +85,26 @@ public class TestingActivity extends Activity implements View.OnClickListener {
         d.setOnClickListener(this);
         question = (TextView) findViewById(R.id.questiontext);
         try {
-           final InputStream isqs  = getAssets().open("SpaceAppsQuestions.txt");
-           final InputStream  isans = getAssets().open("SpaceAppsAnswers.txt");
+            final InputStream isqs = getAssets().open("questions");
+            final InputStream isans = getAssets().open("answer");
             readerans = new BufferedReader(new InputStreamReader(isans));
             readerqs = new BufferedReader(new InputStreamReader(isqs));
             // get the number of how much question there are
-                readerans.mark(0);
+            // read data drom file build
 
-            /*while(readerans.readLine() !=null){
-                String tmp = readerans.readLine();
-                Log.d("tmp phrase: ",tmp);
-                length++;
-            }*/
-            File textfile = new File("assets/SpaceAppsQuestions.txt");
-            Log.d("textfile length: ", Long.toString(textfile.length()));
 
-            readerans.reset();
-            // read data drom file build list
-            while(readerans.readLine() != null && readerqs.readLine() != null){
-                for(int i=0;i<length;i++){
+            for (int i = 0; i < 16; i++) {
 
-                    list.add( new Triple(readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), Integer.parseInt(readerans.readLine())));
-                }
+                list.add(new Triple(readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), readerqs.readLine(), 1/*Integer.parseInt(readerans.readLine())*/));
+                Log.d("ITEM of list = ", list.get(i).getQustions());
             }
-        } catch (IOException e) {
+        }catch (Exception e) {
             e.printStackTrace();
         }
-        int[] rng = RNG(list.size()-1,list.size());
+
+
+        Log.d("list lengtj: ", Integer.toString(list.size()));
+       int[] rng = RNG(list.size()-1,list.size());
         int first = rng[0];
         String Question = getQuestionfromindex(first).getQustions();
         String anserA = getQuestionfromindex(first).getAnswera();
