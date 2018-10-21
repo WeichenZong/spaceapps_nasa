@@ -69,6 +69,7 @@ class Triple{
     Button b;
     Button c;
     Button d;
+    Button back;
     TextView question;
     ArrayList<Button> answers = new ArrayList<>();
     int length=0;
@@ -88,6 +89,8 @@ class Triple{
         c.setOnClickListener(this);
         d = (Button) findViewById(R.id.button_d);
         d.setOnClickListener(this);
+        back = (Button) findViewById(R.id.backbutton);
+        back.setOnClickListener(this);
         question = (TextView) findViewById(R.id.questiontext);
         try {
             final InputStream isqs = getAssets().open("questions");
@@ -140,6 +143,11 @@ class Triple{
 
             Intent intent = new Intent(this, CongratsActivity.class);
             intent.putExtra( EXTRA_MESSAGE,iteration+1);
+            startActivity(intent);
+        }
+        else if(v == back){
+            Intent intent = new Intent(this, MenuActivity.class);
+            intent.putExtra( EXTRA_MESSAGE,iteration);
             startActivity(intent);
         }
         else{
