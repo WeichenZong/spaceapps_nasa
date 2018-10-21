@@ -8,14 +8,14 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/icon"
+        android:id="@+id/mars"
         android:layout_width="326dp"
         android:layout_height="300dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="44dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
-        android:src="@drawable/icon"
+        android:src="@drawable/mars"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,7 +28,7 @@
         android:layout_marginTop="13dp"
         android:text="Next"
         app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/icon"></Button>
+        app:layout_constraintTop_toBottomOf="@+id/mars"></Button>
 
     <Button
         android:id="@+id/button2"
@@ -37,13 +37,14 @@
         android:layout_marginTop="13dp"
         android:text="Previous"
         app:layout_constraintEnd_toStartOf="@+id/button1"
-        app:layout_constraintTop_toBottomOf="@+id/icon" />
+        app:layout_constraintTop_toBottomOf="@+id/mars" />
 
     <TextView
         android:id="@+id/image_text"
         android:layout_width="380dp"
         android:layout_height="155dp"
         android:layout_marginTop="1dp"
+        android:text="This is mars"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
