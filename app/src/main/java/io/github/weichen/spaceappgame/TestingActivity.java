@@ -103,7 +103,7 @@ public class TestingActivity extends Activity implements View.OnClickListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        int[] rng = RNG(list.size(),list.size());
+        int[] rng = RNG(list.size()-1,list.size());
         int first = rng[0];
         String Question = getQuestionfromindex(first).getQustions();
         String anserA = getQuestionfromindex(first).getAnswera();
