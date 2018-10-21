@@ -7,9 +7,35 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.BufferedReader;
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Scanner;
+
+class Triple{
+    String a,b;
+    int c;
+    public Triple(String a, String b, int c) {
+        this.a= a;
+        this.b = b;
+        this.c= c;
+    }
+    public String getQustions(){
+        //get the question text
+        return a;
+    }
+    public String getAnswer(){
+        //get the answer as text
+        return b;
+    }
+    public int getAnswerKey(){
+        // get the abcd in a int form 1-4
+        return c;
+    }
+}
 
 public class TestingActivity extends Activity implements View.OnClickListener {
 
@@ -17,8 +43,9 @@ public class TestingActivity extends Activity implements View.OnClickListener {
     Button b;
     Button c;
     Button d;
-    Map<String,String> map1 = new Hashtable<String,String>();
-    Map<String,Integer> map2 = new Hashtable<String,Integer>();
+    ArrayList<Triple> list = new ArrayList<Triple>();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,5 +65,9 @@ public class TestingActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
  
 
+    }
+    public int RNG(int max){
+
+        return 0;
     }
 }
