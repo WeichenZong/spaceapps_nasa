@@ -13,6 +13,7 @@ import android.widget.Button;
 import java.io.IOException;
 
 public class MenuActivity extends Activity implements View.OnClickListener {
+    public static final String EXTRA_MESSAGE = "Iteration";
 
     Button learn;
     Button test;
@@ -53,7 +54,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         if (view == learn){
             Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra( "name", "value");
+            intent.putExtra(EXTRA_MESSAGE,0);
             startActivity(intent);
         }
         else if (view == test){

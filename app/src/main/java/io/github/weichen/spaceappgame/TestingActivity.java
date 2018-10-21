@@ -1,7 +1,9 @@
 package io.github.weichen.spaceappgame;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
+import android.support.constraint.solver.widgets.WidgetContainer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -61,18 +63,21 @@ class Triple{
     }
 }
 
-public class TestingActivity extends Activity implements View.OnClickListener {
-
+ class TestingActivity extends Activity implements View.OnClickListener {
+    public static final String EXTRA_MESSAGE = "Iteration";
     Button a;
     Button b;
     Button c;
     Button d;
     TextView question;
+    ArrayList<Button> answers = new ArrayList<>();
     int length=0;
     ArrayList<Triple> list = new ArrayList<Triple>();
     BufferedReader readerans,readerqs;
     @Override
     protected void onCreate(Bundle savedInstanceState) throws  NumberFormatException {
+        Intent intent = getIntent();
+        Integer iteration = intent.getIntExtra(MenuActivity.EXTRA_MESSAGE,0);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testing);
         a = (Button) findViewById(R.id.button_a);
@@ -104,30 +109,43 @@ public class TestingActivity extends Activity implements View.OnClickListener {
 
 
         Log.d("list lengtj: ", Integer.toString(list.size()));
-       int[] rng = RNG(list.size()-1,list.size());
-        int first = rng[0];
+        int[] rng = RNG(list.size()-1,list.size());
+        int first = rng[iteration];
         String Question = getQuestionfromindex(first).getQustions();
         String anserA = getQuestionfromindex(first).getAnswera();
         String anserB = getQuestionfromindex(first).getAnswerb();
         String anserC = getQuestionfromindex(first).getAnswerc();
         String anserD = getQuestionfromindex(first).getAnswerd();
         int rightanswer = getQuestionfromindex(first).getAnswerKey();
-        Log.d("list size",Integer.toString(list.size()));
-
         a.setText(anserA);
         b.setText(anserB);
         c.setText(anserC);
         d.setText(anserD);
         question.setText(Question);
 
+        answers.add(a);
+        answers.add(b);
+        answers.add(c);
+        answers.add(d);
+
+
     }
 
     @Override
     public void onClick(View v) {
-        if(v==a){
+        Intent get_intent = getIntent();
+        Integer iteration = get_intent.getIntExtra(MenuActivity.EXTRA_MESSAGE,0);
+        if(v==answers.get(list.get(iteration).getAnswerKey())){
+//if he is right
 
+            Intent intent = new Intent(this, CongratsActivity.class);
+            intent.putExtra( EXTRA_MESSAGE,iteration+1);
+            startActivity(intent);
         }
-        else if(v==b){
+        else{
+            Intent intent = new Intent(this, LessCongratsActivity.class);
+            intent.putExtra( EXTRA_MESSAGE,iteration+1);
+            startActivity(intent);
 
         }
 
